@@ -5,7 +5,7 @@
 services:
   postgres:
     image: timescale/timescaledb:latest-pg17
-    container_name: kbdb-postgres
+    container_name: kbdb-postgres_2
     environment:
       POSTGRES_USER: student
       POSTGRES_PASSWORD: student

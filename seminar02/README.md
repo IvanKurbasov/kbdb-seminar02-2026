@@ -9,9 +9,19 @@
 
 ## Сущности (часть 1)
 
-| Сущность | Естественный ключ | Атрибуты | Примечание |
-|---|---|---|---|
-| … | … | … | … |
+| Сущность    | Естественный ключ | Атрибуты                                 | Примечание           |
+|-------------|-------------------|------------------------------------------|----------------------|
+| wind_farm   | code              | name, country, region                    | KELMARSH             |
+| turbine     | serial_number     | farm_id, power, mass                     | Название турбины     |
+| signal      | code              | turbine_id, signal_type_id, description  | wind, power          |
+| signal_type | code              | name, unit_of_measure, description       | wind_speed           |
+| event       | -                 | turbine_id, start_time, message          | Из журнала событий   |
+| telemetry   | (signal_id, ts)   | data, value                              | Данные за год работы |
+| engineer    | tabel_name        | full_name, specialization, years_of_work | "S-001"              |
+| part        | article_number    | turbine_id, name, unit_of_measure        | Запчасти             |
+
+
+
 
 ## Связи
 
