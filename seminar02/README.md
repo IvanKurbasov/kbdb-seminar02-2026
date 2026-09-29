@@ -16,6 +16,7 @@
 | signal      | code              | turbine_id, signal_type_id, description  | wind, power          |
 | signal_type | code              | name, unit_of_measure, description       | wind_speed           |
 | event       | -                 | turbine_id, start_time, message          | Из журнала событий   |
+| event_type  | -                 | turbine_id, start_time, message          | Из журнала событий   |
 | telemetry   | (signal_id, ts)   | data, value                              | Данные за год работы |
 | engineer    | tabel_name        | full_name, specialization, years_of_work | "S-001"              |
 | part        | article_number    | turbine_id, name, unit_of_measure        | Запчасти             |
@@ -25,9 +26,14 @@
 
 ## Связи
 
-| A — B | Кардинальность | Обязательна? | Атрибуты связи |
-|---|---|---|---|
-| … | 1:N | … | … |
+| A — B                  | Кардинальность | Обязательна?             | Атрибуты связи |
+|------------------------|----------------|--------------------------|----------------|
+| wind_farm - turbine    | 1:N            | Да, со стороны turbine   | -              |
+| turbine - signal       | 1:N            | Да, со стороны signal    | -              |
+| signal_type - signal   | 1:N            | Да, со стороны signal    | -              |
+| signal - telemetry     | 1:N            | Да, со стороны telemetry | -              |
+| event_type - event     | 1:N            | Да, со стороны event     | -              |
+
 
 ## Что меняется во времени
 
